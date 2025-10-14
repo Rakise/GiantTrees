@@ -18,16 +18,21 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>GiantTrees</groupId>
   <artifactId>GiantTrees</artifactId>
-  <version>3.2-SNAPSHOT</version>
+  <name>GiantTrees</name>
+  <version>3.2</version>
+  <description>Grows enormous trees</description>
+
   <properties>
+    <api-version>1.21</api-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <sonar.java.source>${maven.compiler.source}</sonar.java.source>
     <sonar.exclusions>src/arbaro/java/**</sonar.exclusions>
-    <rtr.allowExternalSnapshots>true</rtr.allowExternalSnapshots>
+	<rtr.allowExternalSnapshots>true</rtr.allowExternalSnapshots>
     <tagNameFormat>@{project.version}</tagNameFormat>
   </properties>
   <scm>
@@ -58,7 +63,7 @@
     <dependency>
       <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
-      <version>1.21.3-R0.1-SNAPSHOT</version>
+      <version>1.21.10-R0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -68,6 +73,9 @@
     </dependency>
   </dependencies>
   <build>
+  
+    <finalName>${project.name}-${project.version}</finalName>
+
     <defaultGoal>clean install</defaultGoal>
     <resources>
       <resource>
@@ -118,6 +126,14 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
+        <configuration>
+          <source>21</source>
+          <target>21</target>
+          <compilerArgs>
+            <arg>-Xlint:-options</arg>
+            <arg>-proc:full</arg>
+          </compilerArgs>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>

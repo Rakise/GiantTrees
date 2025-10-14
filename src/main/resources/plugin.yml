@@ -1,9 +1,9 @@
-name: GiantTrees
-version: "${project.version}"
-api-version: "1.21"
+name: ${project.name}
+description: ${project.description}
 author: Ryan Michela
+version: "${project.version}"
+api-version: ${api-version}
 main: com.ryanmichela.trees.TreePlugin
-description: Grows enormous trees.
 load: STARTUP
 
 commands:
