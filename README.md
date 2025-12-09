@@ -1,5 +1,4 @@
 # GiantTrees
-
 ![Screenshot](doc/herotree.png)
 
 _This plugin now only uses official Bukkit APIs, so it should be future proof. Recently tested with Spigot 1.15._
